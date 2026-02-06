@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://www.gist.ac.kr/'>Gwangju Institute of Science and Technology (GIST)</a>. Mathematical Science. Address. Contacts. Motto. Etc.
+subtitle: <a href='https://www.gist.ac.kr/'>Gwangju Institute of Science and Technology (GIST)</a>. Mathematical Science & EECS.
 
 
 #profile:
