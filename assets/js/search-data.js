@@ -9,12 +9,12 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "blog",
+  },{id: "nav-study",
+          title: "Study",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/blog/";
+            window.location.href = "/study/index.html";
           },
         },{id: "nav-projects",
           title: "projects",
@@ -38,7 +38,18 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/welcome/";
+            window.location.href = "/study/2026/welcome/";
+          
+        },
+      },{id: "post-control-barrier-functions",
+        
+          title: "Control Barrier Functions",
+        
+        description: "Introduction to Control Barrier Functions and Safety Control",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/study/2026/CBF/";
           
         },
       },{id: "books-the-godfather",
