@@ -14,6 +14,78 @@ h6 {
     font-weight: bold !important;
 }
 
+/* --- Compact.css Port --- */
+
+/* 1. Table Font Size & Spacing */
+.post-content table {
+    font-size: 13px !important;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.post-content table td,
+.post-content table th {
+    padding: 4px 8px !important;
+    line-height: 1.2 !important;
+    vertical-align: middle !important;
+}
+
+.post-content table tr {
+    border-bottom: 1px solid var(--global-divider-color) !important;
+}
+
+/* 2. Links in Tables (Neutral color, hover effect) */
+.post-content table a {
+    color: var(--global-text-color) !important;
+    text-decoration: none !important;
+    font-weight: normal;
+}
+
+.post-content table a:hover {
+    color: var(--global-theme-color) !important;
+    text-decoration: underline !important;
+}
+
+/* 3. Row Numbering (Auto-counter) */
+.post-content table {
+    counter-reset: row-num;
+}
+
+.post-content table tbody tr td:first-child::before {
+    counter-increment: row-num;
+    content: counter(row-num) ". ";
+
+    font-weight: bold;
+    color: var(--global-text-color-light);
+    /* Assuming a lighter text var or fallback */
+    opacity: 0.6;
+    font-family: monospace;
+    margin-right: 8px;
+    display: inline-block;
+    min-width: 20px;
+}
+
+/* 4. List Spacing (Compact) */
+.post-content ul>li,
+.post-content ol>li {
+    margin-block: 0.3em;
+    /* Tighter than default */
+}
+
+.post-content ul ul>li,
+.post-content ol ol>li {
+    margin-block: 0.15em;
+    /* Even tighter for nested */
+}
+
+/* 5. Wide Page Mode (Optional helper) */
+.wide-page .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 2rem;
+}
+
+
 /* Highlights */
 mark {
     background-color: #fff3a3;
