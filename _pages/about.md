@@ -18,21 +18,21 @@ subtitle: <a href='https://www.gist.ac.kr/'>Gwangju Institute of Science and Tec
 
 
 announcements:
-  enabled: true # includes a list of news items
+  enabled: False # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: False
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
-## Biography
+#### Biography
 
 I am an undergraduate student at **Gwangju Institute of Science and Technology (GIST)**, double majoring in **Mathematical Science** and **Electrical Engineering and Computer Science (EECS)**. 
 My academic journey is driven by a deep fascination with the intersection of mathematics and applied control theory including rigorous proof.
 
-### Research Interests
+##### Research Interests
 * **Optimization:** Distributed ADMM
 * **Control Theory:** Model Predictive Control (MPC), Multi-agent Systems.
 * **Distance Geometry:** Rigidity Theory
