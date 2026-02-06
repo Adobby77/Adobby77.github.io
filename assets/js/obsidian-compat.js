@@ -35,20 +35,34 @@ function processCallouts() {
         const firstP = bq.querySelector("p");
         if (!firstP) return;
 
-        const text = firstP.textContent.trim();
-        const match = text.match(/^\[!(\w+)\](?: (.*))?$/);
+        // Get innerHTML to handle <br> and newlines
+        const html = firstP.innerHTML;
+
+        // Split identifying line from content
+        // We look for the first newline or <br> to end the title line
+        const lineBreakRegex = /<br\s*\/?>|\n/;
+        const parts = html.split(lineBreakRegex);
+        const firstLineHtml = parts[0];
+
+        // Extract text from the first line to check for callout pattern
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = firstLineHtml;
+        const firstLineText = tempDiv.textContent.trim();
+
+        // Regex to match [!type] or [! type] with optional title
+        const match = firstLineText.match(/^\[!\s*(\w+)\s*\](?:\s+(.*))?$/);
 
         if (match) {
             const type = match[1].toLowerCase();
             const title = match[2] || type.charAt(0).toUpperCase() + type.slice(1);
 
-            // Remove the [!type] text node from the paragraph
-            // We need to be careful not to delete the whole paragraph if there is more content
-            const lines = firstP.innerHTML.split('\n');
-            if (lines[0].includes('[!')) {
-                lines.shift(); // Remove the identifier line
-                firstP.innerHTML = lines.join('\n');
-            }
+            // Remove the first line (callout identifier) from the content
+            parts.shift();
+
+            // Reconstruct the remaining content
+            // If the original used <br>, we should preserve breaks, but <br> is safe generally
+            const remainingContent = parts.join("<br>");
+            firstP.innerHTML = remainingContent;
 
             // Create structure
             const container = document.createElement("div");
@@ -60,7 +74,6 @@ function processCallouts() {
 
             const icon = document.createElement("span");
             icon.className = "obsidian-callout-icon";
-            // Simple SVG icons mapping could be added here, for now use generic info icon or emoji
             icon.innerHTML = getIcon(type);
 
             header.appendChild(icon);
