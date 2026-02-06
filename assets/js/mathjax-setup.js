@@ -5,6 +5,10 @@ window.MathJax = {
       ["$", "$"],
       ["\\(", "\\)"],
     ],
+    displayMath: [
+      ["$$", "$$"],
+      ["\\[", "\\]"],
+    ],
     macros: {
       R: "\\mathbb{R}",
       N: "\\mathbb{N}",
