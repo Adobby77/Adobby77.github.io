@@ -146,6 +146,18 @@ layout: default
           {% if section_title == 'Experience' or section_title == 'Volunteer' %}
             {% continue %}
           {% endif %}
+          
+          {% if section_title == 'Research Experience' or section_title == 'International Experience' or section_title == 'Teaching Experience' or section_title == 'Military Service' or section_title == 'Work Experience' %}
+            <a class="anchor" id="{{ section_title | slugify }}"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ section_title }}</h3>
+              <div>
+                {% assign entries = section_entries %}
+                {% include cv/experience.liquid %}
+              </div>
+            </div>
+            {% continue %}
+          {% endif %}
 
           <a class="anchor" id="{{ section_title | slugify }}"></a>
           <div class="card mt-3 p-3">
