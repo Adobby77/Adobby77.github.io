@@ -1,0 +1,90 @@
+/* Obsidian Compatibility Styles */
+
+/* Highlights */
+mark {
+  background-color: #fff3a3;
+  color: #333;
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+
+body[data-theme="dark"] mark {
+  background-color: #5c4b0b;
+  color: #ddd;
+}
+
+/* Callouts */
+.obsidian-callout {
+    margin: 1em 0;
+    padding: 0;
+    border-radius: 4px;
+    border: 1px solid rgba(var(--callout-color), 0.2);
+    background-color: rgba(var(--callout-color), 0.1);
+    overflow: hidden;
+}
+
+.obsidian-callout-title {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    background-color: rgba(var(--callout-color), 0.15);
+    color: rgb(var(--callout-color));
+}
+
+.obsidian-callout-icon {
+    margin-right: 0.5em;
+    display: inline-flex;
+    align-items: center;
+}
+
+.obsidian-callout-content {
+    padding: 0.5em 1em;
+}
+
+.obsidian-callout-content > p:last-child {
+    margin-bottom: 0;
+}
+
+/* Callout Types (RGB values for variable usage) */
+/* Note (Blue) */
+.obsidian-callout[data-type="note"] { --callout-color: 8, 109, 221; }
+/* Abstract/Summary/TLDR (Cyan) */
+.obsidian-callout[data-type="abstract"],
+.obsidian-callout[data-type="summary"],
+.obsidian-callout[data-type="tldr"] { --callout-color: 0, 191, 188; }
+/* Info/Todo (Blue) */
+.obsidian-callout[data-type="info"],
+.obsidian-callout[data-type="todo"] { --callout-color: 8, 109, 221; }
+/* Tip/Hint/Important (Green) */
+.obsidian-callout[data-type="tip"],
+.obsidian-callout[data-type="hint"],
+.obsidian-callout[data-type="important"] { --callout-color: 0, 191, 140; }
+/* Success/Check/Done (Green) */
+.obsidian-callout[data-type="success"],
+.obsidian-callout[data-type="check"],
+.obsidian-callout[data-type="done"] { --callout-color: 8, 185, 78; }
+/* Question/Help/Faq (Orange) */
+.obsidian-callout[data-type="question"],
+.obsidian-callout[data-type="help"],
+.obsidian-callout[data-type="faq"] { --callout-color: 236, 117, 0; }
+/* Warning/Caution/Attention (Orange) */
+.obsidian-callout[data-type="warning"],
+.obsidian-callout[data-type="caution"],
+.obsidian-callout[data-type="attention"] { --callout-color: 236, 117, 0; }
+/* Failure/Fail/Missing (Red) */
+.obsidian-callout[data-type="failure"],
+.obsidian-callout[data-type="fail"],
+.obsidian-callout[data-type="missing"] { --callout-color: 233, 49, 71; }
+/* Danger/Error/Bug (Red) */
+.obsidian-callout[data-type="danger"],
+.obsidian-callout[data-type="error"],
+.obsidian-callout[data-type="bug"] { --callout-color: 233, 49, 71; }
+/* Example (Purple) */
+.obsidian-callout[data-type="example"] { --callout-color: 120, 82, 238; }
+/* Quote/Cite (Grey) */
+.obsidian-callout[data-type="quote"],
+.obsidian-callout[data-type="cite"] { --callout-color: 158, 158, 158; }
+
+/* Default fallback */
+.obsidian-callout { --callout-color: 8, 109, 221; }
