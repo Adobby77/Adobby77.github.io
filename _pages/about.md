@@ -6,7 +6,7 @@ subtitle: <a href='https://www.gist.ac.kr/'>Gwangju Institute of Science and Tec
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: #prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Undergraduate Student</p>
