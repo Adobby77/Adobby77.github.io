@@ -17,12 +17,46 @@ function processHighlights() {
             const parent = node.parentNode;
             // Skip if already in code or pre tags
             if (parent.tagName === "CODE" || parent.tagName === "PRE") return;
+            if (parent.closest("code") || parent.closest("pre")) return;
 
+            // Regex for ==highlight==
+            // Using a simple regex that captures content between ==
             const regex = /==([^=]+)==/g;
             if (regex.test(node.nodeValue)) {
                 const span = document.createElement("span");
-                span.innerHTML = node.nodeValue.replace(regex, "<mark>$1</mark>");
-                parent.replaceChild(span, node);
+                // Use replace to wrap matches in <mark>
+                // We need to be careful about HTML escaping if we assign to innerHTML
+                // But node.nodeValue is text.
+                // A safer way is to replace the text node with a fragment
+
+                const fragment = document.createDocumentFragment();
+                let lastIndex = 0;
+                let text = node.nodeValue;
+
+                // Reset regex
+                regex.lastIndex = 0;
+                let match;
+
+                // We can't use regex.exec loop easily if we modify the string or need to handle non-matches
+                // simpler approach: replace with a placeholder or split
+
+                const parts = text.split(regex);
+                // parts will be [pre, match, post, match, post...] if using capturing group
+                // But split with capturing group includes the captures
+
+                for (let i = 0; i < parts.length; i++) {
+                    if (i % 2 === 0) {
+                        // Regular text
+                        if (parts[i]) fragment.appendChild(document.createTextNode(parts[i]));
+                    } else {
+                        // Highlighted text
+                        const mark = document.createElement("mark");
+                        mark.textContent = parts[i];
+                        fragment.appendChild(mark);
+                    }
+                }
+
+                parent.replaceChild(fragment, node);
             }
         }
     });
@@ -32,66 +66,114 @@ function processCallouts() {
     const blockquotes = document.querySelectorAll("blockquote");
 
     blockquotes.forEach((bq) => {
-        const firstP = bq.querySelector("p");
-        if (!firstP) return;
+        // We look at the first text content to see if it starts with [!type]
+        // The structure might be <p>[!type] Title<br>Content</p> or <p>[!type] Title</p><p>Content</p>
 
-        // Get innerHTML to handle <br> and newlines
-        const html = firstP.innerHTML;
+        // Strategy: textContent check first
+        const text = bq.textContent.trim();
+        const match = text.match(/^\[!\s*(\w+)\s*\]/);
 
-        // Split identifying line from content
-        // We look for the first newline or <br> to end the title line
-        const lineBreakRegex = /<br\s*\/?>|\n/;
-        const parts = html.split(lineBreakRegex);
-        const firstLineHtml = parts[0];
+        if (!match) return;
 
-        // Extract text from the first line to check for callout pattern
-        const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = firstLineHtml;
-        const firstLineText = tempDiv.textContent.trim();
+        const type = match[1].toLowerCase();
 
-        // Regex to match [!type] or [! type] with optional title
-        const match = firstLineText.match(/^\[!\s*(\w+)\s*\](?:\s+(.*))?$/);
-
-        if (match) {
-            const type = match[1].toLowerCase();
-            const title = match[2] || type.charAt(0).toUpperCase() + type.slice(1);
-
-            // Remove the first line (callout identifier) from the content
-            parts.shift();
-
-            // Reconstruct the remaining content
-            // If the original used <br>, we should preserve breaks, but <br> is safe generally
-            const remainingContent = parts.join("<br>");
-            firstP.innerHTML = remainingContent;
-
-            // Create structure
-            const container = document.createElement("div");
-            container.className = "obsidian-callout";
-            container.setAttribute("data-type", type);
-
-            const header = document.createElement("div");
-            header.className = "obsidian-callout-title";
-
-            const icon = document.createElement("span");
-            icon.className = "obsidian-callout-icon";
-            icon.innerHTML = getIcon(type);
-
-            header.appendChild(icon);
-            header.appendChild(document.createTextNode(title));
-
-            const content = document.createElement("div");
-            content.className = "obsidian-callout-content";
-
-            // Move all children of blockquote to content
-            while (bq.firstChild) {
-                content.appendChild(bq.firstChild);
-            }
-
-            container.appendChild(header);
-            container.appendChild(content);
-
-            bq.parentNode.replaceChild(container, bq);
+        // Find the element containing the definition
+        // Usually it's the first child, often a <p>
+        let firstChild = bq.firstElementChild;
+        if (!firstChild && bq.firstChild) {
+            // It might be a text node directly inside blockquote (unlikely in generated HTML but possible)
+            // Wrap it in p for consistency if needed, or just handle it.
+            // But for valid markdown output, it's usually a p.
+            return;
         }
+
+        if (firstChild.tagName !== 'P' && firstChild.tagName !== 'DIV') return; // unexpected structure
+
+        // Now extracting title vs content
+        // The [!type] tag is in the first element.
+        // We need to separate the line containing [!type] from the rest.
+
+        // Check innerHTML for <br> or newline
+        let html = firstChild.innerHTML;
+
+        // Check if there is a break
+        const lineBreakRegex = /<br\s*\/?>|\n/;
+        let splitIndex = html.search(lineBreakRegex);
+
+        let titleHtml = "";
+        let contentHtml = "";
+
+        if (splitIndex !== -1) {
+            // Found a break in the first element
+            titleHtml = html.substring(0, splitIndex);
+            // The rest is content, skipping the break
+            // We need to find where the break ends (e.g. <br> is 4 chars)
+            const matchBreak = html.match(lineBreakRegex);
+            contentHtml = html.substring(splitIndex + matchBreak[0].length);
+
+            // If there was only title in this P, contentHtml might be empty, 
+            // and actual content is in subsequent siblings of firstChild
+            firstChild.innerHTML = contentHtml; // Update first paragraph to remove title
+        } else {
+            // No break found in first element. 
+            // The whole first element is the title line (minus the [!type])
+            titleHtml = html;
+            // The content is the *rest* of the blockquote's children
+            firstChild.remove(); // Remove the title paragraph from content flow
+        }
+
+        // Parse title text to remove [!type]
+        // We create a temp div to strip tags if we want to run regex on text
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = titleHtml;
+        let titleText = tempDiv.textContent;
+
+        const titleMatch = titleText.match(/^\[!\s*(\w+)\s*\](?:\s+(.*))?$/);
+        let displayTitle = type.charAt(0).toUpperCase() + type.slice(1);
+
+        if (titleMatch) {
+            if (titleMatch[2]) {
+                displayTitle = titleMatch[2];
+            }
+        }
+
+        // Construct the callout structure
+        const container = document.createElement("div");
+        container.className = "obsidian-callout";
+        container.setAttribute("data-type", type);
+
+        const header = document.createElement("div");
+        header.className = "obsidian-callout-title";
+
+        const icon = document.createElement("span");
+        icon.className = "obsidian-callout-icon";
+        icon.innerHTML = getIcon(type);
+
+        header.appendChild(icon);
+        header.appendChild(document.createTextNode(displayTitle));
+
+        const contentDiv = document.createElement("div");
+        contentDiv.className = "obsidian-callout-content";
+
+        // Append content
+        if (splitIndex !== -1) {
+            // We modified firstChild to hold the rest of the content
+            // So we just append all children of bq (including firstChild)
+            while (bq.firstChild) {
+                contentDiv.appendChild(bq.firstChild);
+            }
+        } else {
+            // firstChild was removed (it was just title)
+            // Append remaining siblings
+            while (bq.firstChild) {
+                contentDiv.appendChild(bq.firstChild);
+            }
+        }
+
+        container.appendChild(header);
+        container.appendChild(contentDiv);
+
+        bq.parentNode.replaceChild(container, bq);
     });
 }
 
