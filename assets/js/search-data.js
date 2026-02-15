@@ -30,11 +30,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-welcome-to-my-study-notes",
+        },{id: "post-welcome-to-my-research-notes",
         
-          title: "Welcome to My Study Notes",
+          title: "Welcome to My Research Notes",
         
-        description: "This is where I will post my study notes and paper reviews.",
+        description: "An archive of my study notes, paper reviews, and mathematical derivations.",
         section: "Posts",
         handler: () => {
           
