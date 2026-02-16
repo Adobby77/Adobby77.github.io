@@ -41,6 +41,17 @@ ninja.data = [{
             window.location.href = "/study/2026/CBF/";
           
         },
+      },{id: "post-rigidity-theory",
+        
+          title: "Rigidity Theory",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/study/2026/Rigidity/";
+          
+        },
       },{id: "post-jacobi-amp-gauss-seidel-method",
         
           title: "Jacobi &amp; Gauss-Seidel Method",
