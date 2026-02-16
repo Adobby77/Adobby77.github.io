@@ -22,6 +22,7 @@ The fundamental difference between them is the way they utilize information duri
 ## 1. Problem formulation
 
 > [!note] Problem formulation
+> 
 > **Solve** $Ax=b$
 > where $A\in\mathbb{R}^{n\times n}$, $x, b\in\mathbb{R}^n$
 > 
@@ -62,6 +63,7 @@ Separate $A$ into 3 parts, i.e. $A=D+L+U$ where $D$ is diagonal, $L$ is strictly
 Then, we have $(D+L+U)x=b$ and hence
 
 > [!algorithm] Jacobi Method
+> 
 > $$\begin{aligned}
 > Dx + (L+U)x = b&  && \text{(given)}\\[2pt]
 > Dx = b - (L+U)x&  && \text{(move $(L+U)x$)}\\[2pt]
@@ -126,6 +128,7 @@ Same to the Jacobi method, separate $A$ into 3 parts, i.e. $A=D+L+U$ where $D$ i
 Then, we have $(D+L+U)x=b$ and hence
 
 > [!algorithm] Gauss-Seidel Method
+> 
 > $$\begin{aligned}
 > (D + L)x+Ux = b&  && \text{(given)}\\[2pt]
 > (D+L)x = b - Ux&  && \text{(move $Ux$)}\\[2pt]
@@ -168,6 +171,7 @@ As we can see, both algorithms require **central factors** and hence not applica
 ### 3.1. Preliminaries
 
 ##### Def 3.1) Spectral radius
+
 > For a square matrix $A\in\mathbb{C}^{n\times n}$, the spectral radius of $A$ is the maximum value of the absolute values of its eigenvalues and denoted by $\rho(A)$.
 > 
 > $$\rho(A)=\max\{|\lambda_1|,\cdots,|\lambda_n|\}$$
@@ -175,7 +179,8 @@ As we can see, both algorithms require **central factors** and hence not applica
 <div style="height: 0.1em;"></div>
 
 ##### Lem 3.2) Relationship between Norm and Spectral Radius
-> For any matrix $T \in \mathbb{C}^{n \times n}$ and any $\epsilon > 0$, there exists a subordinate matrix norm $||\cdot||$ such that: 
+
+> For any matrix $T\in\mathbb{C}^{n \times n}$ and any $\epsilon > 0$, there exists a subordinate matrix norm $\lnm\cdot\rnm$ such that: 
 > 
 > $$\left\lVert T\right\rVert \le \rho(T) + \epsilon$$
 
@@ -199,26 +204,33 @@ As we can see, both algorithms require **central factors** and hence not applica
 <div style="height: 0.1em;"></div>
 
 **Proof.** Let $\lambda$ be the eigenvalue of $A$ and $x$ be the eigenvector corresponds to $\lambda$, i.e. $Ax=\lambda x$.
+
 Let $x_{j^*}$ be the element whose magnitude is the largest among the elements of $x$, i.e. 
 
 $$|x_{i}|=\max_{j}|x_j|$$
+
 Since $x\neq 0$, $|x_{i}|>0$.
 
 Now, from the equation $Ax=\lambda x$, observe the $i^{\textrm{th}}$ row only.
 
 $$\lambda x_i=\sum_{j}a_{ij}\frac{x_j}{x_i}$$
+
 and hence
 
 $$\lambda-a_{ii}=\sum_{j\neq i}a_{ij}\frac{x_j}{x_i}$$
+
 Take absolute value
 
 $$|\lambda-a_{ii}|=\left|\sum_{j\neq i}a_{ij}\frac{x_j}{x_i}\right|$$
+
 By triangle inequality, 
 
 $$\left|\sum_{j\neq i}a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|$$
+
 and from the fact that $|x_i|\geq|x_j|$ ,
 
 $$\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\right|\left|\frac{x_j}{x_i}\right|\leq\sum_{j\neq i}\left|a_{ij}\right|=R_i$$
+
 Thus, we can conclude that $|\lambda-a_{ii}|\leq R_i$ and hence, proved.<span style="float: right;">$\square$</span>
 
 <div style="height: 0.1em;"></div>
@@ -231,7 +243,7 @@ Thus, we can conclude that $|\lambda-a_{ii}|\leq R_i$ and hence, proved.<span st
 
 ### 3.2. Convergence Theorems
 
-Both iterative methods are said to converge when $||x^{(k+1)}-x^{(k)}||<\varepsilon$ for any $\varepsilon>0$ .
+Both iterative methods are said to converge when $\lnmx^{(k+1)}-x^{(k)}\rnm<\varepsilon$ for any $\varepsilon>0$ .
 There are some conditions to guarantee the theoretical convergence of Jacobi method.
 
 ##### Thm 3.6) Convergence for strictly diagonally dominant matrix
@@ -245,20 +257,25 @@ There are some conditions to guarantee the theoretical convergence of Jacobi met
 From the element-based Jacobi method,
 
 $$x_i^{(k+1)}=\frac{1}{a_{ii}}\left(b_i-\sum_{j\neq i}a_{ij}x_j^{(k)}\right), \quad\forall i,$$
+
 we can denote the exact solution by dropping the iteration index $k$.
 
 $$x_i^*=\frac{1}{a_{ii}}\left(b_i-\sum_{j\neq i}a_{ij}x_j^*\right), \quad\forall i,$$
+
 **Claim: Error Converges to 0**
 
 In this setting, we can define an error at iteration $k$ by taking an absolute value of the difference between the value at iteration $k$ and the exact solution.
 
 $$e_i^{(k+1)}=x_i^{(k+1)}-x_i^*=\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}\left(x_j^{(k)}-x_j^*\right)=\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}e_j^{(k)}$$
+
 Taking absolute value and apply the triangle inequality.
 
 $$\left|e_i^{(k+1)}\right|=\left|\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}e_j^{(k)}\right|\leq\left|\frac{1}{a_{ii}}\right|\sum_{j\neq i}\left|a_{ij}e_j^{(k)}\right|=\sum_{j\neq i}\left|\frac{a_{ij}}{a_{ii}}\right|\left|e_j^{(k)}\right|$$
+
 Since $A$ is strictly diagonally dominant, $C_i=\sum_{j\neq i}\left|\frac{a_{ij}}{a_{ii}}\right|<1$ and hence we have
 
 $$\left|e_i^{(k+1)}\right|\leq C_i\left|e_j^{(k)}\right|$$
+
 Then, by the definition of $l_\infty$ norm, 
 
 $$\left\lVert e^{(k+1)}\right\rVert_\infty \leq C\left\lVert e^{(k)}\right\rVert_\infty\quad\text{where}\quad C<1$$
@@ -276,17 +293,21 @@ $$x_i^{(k+1)}=\frac{1}{a_{ii}}\left(b_i-\sum_{j=1}^{i-1}a_{ij}x_j^{(k+1)}-\sum_{
 we can denote the exact solution by dropping the iteration index $k$.
 
 $$x_i^*=\frac{1}{a_{ii}}\left(b_i-\sum_{j=1}^{i-1}a_{ij}x_j^*-\sum_{j=i+1}^{n}a_{ij}x_j^*\right), \quad\forall i,$$
+
 **Claim: Error Converges to 0**
 
 In this setting, we can define an error at iteration $k$ by taking a difference between the value at iteration $k$ and the exact solution, $e_i^{(k)} = x_i^{(k)}-x_i^*$. Subtracting the second equation from the first yields the error propagation formula:
 
 $$e_i^{(k+1)}=x_i^{(k+1)}-x_i^*=-\frac{1}{a_{ii}}\left(\sum_{j=1}^{i-1}a_{ij}e_j^{(k+1)}+\sum_{j=i+1}^{n}a_{ij}e_j^{(k)}\right)$$
+
 Taking the absolute value and applying the triangle inequality, we get:
 
 $$\left|e_i^{(k+1)}\right|\leq\frac{1}{\left|a_{ii}\right|}\left(\sum_{j=1}^{i-1}\left|a_{ij}\right|\left|e_j^{(k+1)}\right|+\sum_{j=i+1}^{n}\left|a_{ij}\right|\left|e_j^{(k)}\right|\right)$$
+
 Let $\|e^{(k+1)}\|_\infty = \max_i|e_i^{(k+1)}| = |e_p^{(k+1)}|$ for some index $p$. For this specific component $p$, the inequality becomes:
 
 $$\|e^{(k+1)}\|_\infty \leq \frac{1}{|a_{pp}|} \left( \left(\sum_{j=1}^{p-1}|a_{pj}|\right) \|e^{(k+1)}\|_\infty + \left(\sum_{j=p+1}^{n}|a_{pj}|\right) \|e^{(k)}\|_\infty \right)$$
+
 We can now solve for $\|e^{(k+1)}\|_\infty$:
 
 $$\|e^{(k+1)}\|_\infty \left( 1 - \frac{\sum_{j=1}^{p-1}|a_{pj}|}{|a_{pp}|} \right) \le \left( \frac{\sum_{j=p+1}^{n}|a_{pj}|}{|a_{pp}|} \right) \|e^{(k)}\|_\infty$$
@@ -321,6 +342,7 @@ Thus, we can conclude that the error converges to zero.<span style="float: right
 Applying $T$ repeatedly, we get $T^k v = \lambda^k v$. Taking the limit as $k \to \infty$, and using our assumption that $T^k \to 0$: 
 
 $$\lim_{k \to \infty} \left(T^k v\right) = \left(\lim_{k \to \infty} T^k\right) v = 0 \cdot v = 0$$
+
 This means we must have $\lim_{k \to \infty} (\lambda^k v) = 0$. Since $v$ is a non-zero vector, the scalar sequence $\lambda^k$ must converge to 0. This is only possible if $|\lambda| < 1$. Since this must hold for every eigenvalue of $T$, it must hold for the one with the largest magnitude. Thus, $\rho(T) < 1$.
 
 **(Sufficiency: $\rho(T) < 1 \implies \lim_{k \to \infty} T^k = 0$)**
