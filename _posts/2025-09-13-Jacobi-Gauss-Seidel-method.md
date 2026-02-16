@@ -25,8 +25,7 @@ The fundamental difference between them is the way they utilize information duri
 > **Solve** $Ax=b$
 > where $A\in\mathbb{R}^{n\times n}$, $x, b\in\mathbb{R}^n$
 > 
-> $$
-> A=\begin{bmatrix}
+> $$A=\begin{bmatrix}
 > a_{11} & a_{12} & \cdots & a_{1n} \\
 > a_{21} & a_{22} & \cdots & a_{n2}\\
 > \vdots & \vdots &  \ddots & \vdots\\
@@ -45,8 +44,7 @@ The fundamental difference between them is the way they utilize information duri
 > x_2\\
 > \vdots\\
 > x_n
-> \end{bmatrix}
-> $$
+> \end{bmatrix}$$
 > 
 > From a different point-of view, solving $Ax=b$ is equivalent to minimizing $\lVert Ax-b \rVert$. 
 > We can generalize this algorithm to the general optimization problem.
