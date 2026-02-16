@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-welcome-to-my-research-notes",
-        
-          title: "Welcome to My Research Notes",
-        
-        description: "An archive of my study notes, paper reviews, and mathematical derivations.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/study/2026/welcome/";
-          
-        },
-      },{id: "post-control-barrier-functions",
+        },{id: "post-control-barrier-functions",
         
           title: "Control Barrier Functions",
         
@@ -61,6 +50,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/study/2025/Jacobi-Gauss-Seidel-method/";
+          
+        },
+      },{id: "post-welcome-to-my-study-notes",
+        
+          title: "Welcome to My Study Notes",
+        
+        description: "An archive of my study notes, paper reviews, and mathematical derivations.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/study/2025/welcome/";
           
         },
       },{id: "books-the-godfather",
