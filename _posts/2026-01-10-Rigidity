@@ -1,0 +1,23 @@
+---
+layout: post
+title: Rigidity Theory
+date: 2026-01-10 12:00:00 +0900
+updated: 2026-02-16 00:00:00 +0900
+tags:
+- Distance_Geometry/Rigidity_Theory
+categories: study
+featured: true
+pdf: Rigidity Theory.pdf
+---
+> [!TIP] Download PDF
+> 
+> For a cleaner view, please refer to the attached PDF.
+> 
+> <div style="margin-top: 10px; display: flex; align-items: center; gap: 15px;">
+>   <a href="/assets/pdf/{{ page.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank">
+>     <i class="fas fa-file-pdf"></i> Download PDF
+>   </a>
+>   <span style="font-size: 0.85rem; color: #888;">
+>     <i class="fas fa-history"></i> Last updated: Sep. 14. 2025.
+>   </span>
+> </div>
