@@ -56,7 +56,7 @@ ninja.data = [{
         
           title: "Welcome to My Study Notes",
         
-        description: "An archive of my study notes, paper reviews, and mathematical derivations.",
+        description: "",
         section: "Posts",
         handler: () => {
           
