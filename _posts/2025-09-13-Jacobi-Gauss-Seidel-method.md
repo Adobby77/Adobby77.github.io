@@ -209,7 +209,7 @@ Let $x_{j^*}$ be the element whose magnitude is the largest among the elements o
 
 $$|x_{i}|=\max_{j}|x_j|$$
 
-Since $x\neq 0$, $|x_{i}|>0$.
+Since $x\neq 0,\; \left|x\_i\right|>0$.
 
 Now, from the equation $Ax=\lambda x$, observe the $i^{\textrm{th}}$ row only.
 
@@ -227,11 +227,11 @@ By triangle inequality,
 
 $$\left|\sum_{j\neq i}a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|$$
 
-and from the fact that $|x_i|\geq|x_j|$ ,
+and from the fact that $\left|x\_i\right|\geq\left|x\_j\right|$ ,
 
 $$\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\right|\left|\frac{x_j}{x_i}\right|\leq\sum_{j\neq i}\left|a_{ij}\right|=R_i$$
 
-Thus, we can conclude that $|\lambda-a_{ii}|\leq R_i$ and hence, proved.<span style="float: right;">$\square$</span>
+Thus, we can conclude that $\left|\lambda-a_{ii}\right|\leq R\_i$ and hence, proved.<span style="float: right;">$\square$</span>
 
 <div style="height: 0.1em;"></div>
 
@@ -243,7 +243,7 @@ Thus, we can conclude that $|\lambda-a_{ii}|\leq R_i$ and hence, proved.<span st
 
 ### 3.2. Convergence Theorems
 
-Both iterative methods are said to converge when $\lnmx^{(k+1)}-x^{(k)}\rnm<\varepsilon$ for any $\varepsilon>0$ .
+Both iterative methods are said to converge when $\lnm x^{(k+1)}-x^{(k)}\rnm<\varepsilon$ for any $\varepsilon>0$.
 There are some conditions to guarantee the theoretical convergence of Jacobi method.
 
 ##### Thm 3.6) Convergence for strictly diagonally dominant matrix
@@ -272,7 +272,7 @@ Taking absolute value and apply the triangle inequality.
 
 $$\left|e_i^{(k+1)}\right|=\left|\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}e_j^{(k)}\right|\leq\left|\frac{1}{a_{ii}}\right|\sum_{j\neq i}\left|a_{ij}e_j^{(k)}\right|=\sum_{j\neq i}\left|\frac{a_{ij}}{a_{ii}}\right|\left|e_j^{(k)}\right|$$
 
-Since $A$ is strictly diagonally dominant, $C_i=\sum_{j\neq i}\left|\frac{a_{ij}}{a_{ii}}\right|<1$ and hence we have
+Since $A$ is strictly diagonally dominant, $C\_i=\sum_{j\neq i}\left|\frac{a\_{ij}}{a\_{ii}}\right|<1$ and hence we have
 
 $$\left|e_i^{(k+1)}\right|\leq C_i\left|e_j^{(k)}\right|$$
 
@@ -304,7 +304,7 @@ Taking the absolute value and applying the triangle inequality, we get:
 
 $$\left|e_i^{(k+1)}\right|\leq\frac{1}{\left|a_{ii}\right|}\left(\sum_{j=1}^{i-1}\left|a_{ij}\right|\left|e_j^{(k+1)}\right|+\sum_{j=i+1}^{n}\left|a_{ij}\right|\left|e_j^{(k)}\right|\right)$$
 
-Let $\|e^{(k+1)}\|_\infty = \max_i|e_i^{(k+1)}| = |e_p^{(k+1)}|$ for some index $p$. For this specific component $p$, the inequality becomes:
+Let $\left|e^{(k+1)}\right|\_\infty = \max\_i\left|e\_i^{(k+1)}\right| = \left|e\_p^{(k+1)}\right|$ for some index $p$. For this specific component $p$, the inequality becomes:
 
 $$\|e^{(k+1)}\|_\infty \leq \frac{1}{|a_{pp}|} \left( \left(\sum_{j=1}^{p-1}|a_{pj}|\right) \|e^{(k+1)}\|_\infty + \left(\sum_{j=p+1}^{n}|a_{pj}|\right) \|e^{(k)}\|_\infty \right)$$
 
@@ -314,9 +314,9 @@ $$\|e^{(k+1)}\|_\infty \left( 1 - \frac{\sum_{j=1}^{p-1}|a_{pj}|}{|a_{pp}|} \rig
 
 $$\|e^{(k+1)}\|_\infty \le \left( \frac{\sum_{j=p+1}^{n}|a_{pj}|}{|a_{pp}| - \sum_{j=1}^{p-1}|a_{pj}|} \right) \|e^{(k)}\|_\infty$$
 
-Since $A$ is strictly diagonally dominant, we know that $|a_{pp}| > \sum_{j \neq p}|a_{pj}| = \sum_{j=1}^{p-1}|a_{pj}| + \sum_{j=p+1}^{n}|a_{pj}|$. 
+Since $A$ is strictly diagonally dominant, we know that $\left|a\_{pp}\right| > \sum\_{j \neq p}\left|a\_{pj}\right| = \sum\_{j=1}^{p-1}\left|a\_{pj}\right| + \sum\_{j=p+1}^{n}\left|a_{pj}\right|$. 
 
-This implies $|a_{pp}| - \sum_{j=1}^{p-1}|a_{pj}| > \sum_{j=p+1}^{n}|a_{pj}|$. Let us define the constant as $C_p = \frac{\sum_{j=p+1}^{n}|a_{pj}|}{|a_{pp}| - \sum_{j=1}^{p-1}|a_{pj}|}$, it follows that $C_p < 1$.
+This implies $\left|a\_{pp}\right| - \sum\_{j=1}^{p-1}\left|a\_{pj}\right| > \sum_{j=p+1}^{n}\left|a\_{pj}\right|$. Let us define the constant as $C\_p = \frac{\sum_{j=p+1}^{n}\left|a\_{pj}\right|}{\left|a\_{pp}\right| - \sum\_{j=1}^{p-1}\left|a\_{pj}\right|}$, it follows that $C\_p < 1$.
 
 Then, by the definition of $l_\infty$ norm,
 
@@ -343,7 +343,7 @@ Applying $T$ repeatedly, we get $T^k v = \lambda^k v$. Taking the limit as $k \t
 
 $$\lim_{k \to \infty} \left(T^k v\right) = \left(\lim_{k \to \infty} T^k\right) v = 0 \cdot v = 0$$
 
-This means we must have $\lim_{k \to \infty} (\lambda^k v) = 0$. Since $v$ is a non-zero vector, the scalar sequence $\lambda^k$ must converge to 0. This is only possible if $|\lambda| < 1$. Since this must hold for every eigenvalue of $T$, it must hold for the one with the largest magnitude. Thus, $\rho(T) < 1$.
+This means we must have $\lim\_{k \to \infty} (\lambda^k v) = 0$. Since $v$ is a non-zero vector, the scalar sequence $\lambda^k$ must converge to 0. This is only possible if $\left|\lambda\right| < 1$. Since this must hold for every eigenvalue of $T$, it must hold for the one with the largest magnitude. Thus, $\rho(T) < 1$.
 
 **(Sufficiency: $\rho(T) < 1 \implies \lim_{k \to \infty} T^k = 0$)**
 This direction of the proof relies on a lemma of the relationship between norm and spectral radius.
@@ -423,13 +423,9 @@ $$x_i^{(k+1)}
 
 
 and it can be also directly expressed by
+
 $$x^{(k+1)} 
-= (1 - \omega)x^{(k)} 
-+ \omega D^{-1} \left( 
-    b 
-    - Lx^{(k+1)} 
-    - Ux^{(k)} 
-\right).$$
+= (1 - \omega)x^{(k)} + \omega D^{-1} \left(b-Lx^{(k+1)}-Ux^{(k)}\right).$$
 
 this expression is more convenient because it doesn't requires the computation of $(D+\omega L)^{-1}$.
 
@@ -456,9 +452,12 @@ If $A$ is symmetric, i.e. $L=U^\mathsf{T}$, such a method is called the Symmetri
 > If $A$ is symmetric positive-definite and tridiagonal, then  
 > 
 > $$\rho(T_{G}) = \rho(T_J)^2 < 1,$$
+> 
 > and the $\omega$ that minimizes $\rho(T_\omega)$ is  
 > 
-> $$\omega = \frac{2}{1 + \sqrt{1 - \rho(T_J)^2}}$$For this $\omega$, $\rho(T_\omega) = \omega - 1$.
+> $$\omega = \frac{2}{1 + \sqrt{1 - \rho(T_J)^2}}$$
+>
+> For this $\omega$, $\rho(T_\omega) = \omega - 1$.
 
 
 ---
