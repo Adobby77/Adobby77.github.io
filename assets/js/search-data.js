@@ -52,6 +52,17 @@ ninja.data = [{
             window.location.href = "/study/2026/CBF/";
           
         },
+      },{id: "post-jacobi-amp-gauss-seidel-method",
+        
+          title: "Jacobi &amp; Gauss-Seidel Method",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/study/2025/Jacobi-Gauss-Seidel-method/";
+          
+        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
