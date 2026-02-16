@@ -343,7 +343,7 @@ Applying $T$ repeatedly, we get $T^k v = \lambda^k v$. Taking the limit as $k \t
 
 $$\lim_{k \to \infty} \left(T^k v\right) = \left(\lim_{k \to \infty} T^k\right) v = 0 \cdot v = 0$$
 
-This means we must have $\lim\_{k \to \infty} (\lambda^k v) = 0$. Since $v$ is a non-zero vector, the scalar sequence $\lambda^k$ must converge to 0. This is only possible if $\left|\lambda\right| < 1$. Since this must hold for every eigenvalue of $T$, it must hold for the one with the largest magnitude. Thus, $\rho(T) < 1$.
+This means we must have $\lim_{k \to \infty} (\lambda^k v) = 0$. Since $v$ is a non-zero vector, the scalar sequence $\lambda^k$ must converge to 0. This is only possible if $\left\vert\lambda\right\vert < 1$. Since this must hold for every eigenvalue of $T$, it must hold for the one with the largest magnitude. Thus, $\rho(T) < 1$.
 
 **(Sufficiency: $\rho(T) < 1 \implies \lim_{k \to \infty} T^k = 0$)**
 This direction of the proof relies on a lemma of the relationship between norm and spectral radius.
