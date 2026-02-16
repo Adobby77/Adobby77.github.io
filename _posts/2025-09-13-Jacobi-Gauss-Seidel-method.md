@@ -9,7 +9,7 @@ tags:
 - linear-algebra
 categories: study
 featured: true
-pdf: Jacobi.pdf
+pdf: Jacobi & Gauss-Seidel method.pdf
 ---
 > [!TIP] Download PDF
 > 
