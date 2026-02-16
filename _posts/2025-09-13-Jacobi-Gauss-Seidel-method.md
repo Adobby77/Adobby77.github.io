@@ -227,7 +227,7 @@ By triangle inequality,
 
 $$\left|\sum_{j\neq i}a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|$$
 
-and from the fact that $\left\vertx\_i\right\vert\geq\left\vertx\_j\right\vert$ ,
+and from the fact that $\left\vert x\_i\right\vert\geq\left\vert x\_j\right\vert$ ,
 
 $$\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\right|\left|\frac{x_j}{x_i}\right|\leq\sum_{j\neq i}\left|a_{ij}\right|=R_i$$
 
@@ -270,7 +270,7 @@ $$e_i^{(k+1)}=x_i^{(k+1)}-x_i^*=\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}\left(x_j^{(
 
 Taking absolute value and apply the triangle inequality.
 
-$$\left\vert e_i^{(k+1)}\right\vert=\left\vert\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}e_j^{(k)}\right\vert\leq\left\vert\frac{1}{a_{ii}}\right\vert\sum_{j\neq i}\left\verta_{ij}e_j^{(k)}\right\vert=\sum_{j\neq i}\left\vert\frac{a_{ij}}{a_{ii}}\right\vert\left\verte_j^{(k)}\right\vert$$
+$$\left\vert e_i^{(k+1)}\right\vert=\left\vert\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}e_j^{(k)}\right\vert\leq\left\vert\frac{1}{a_{ii}}\right\vert\sum_{j\neq i}\left\vert a_{ij}e_j^{(k)}\right\vert=\sum_{j\neq i}\left\vert\frac{a_{ij}}{a_{ii}}\right\vert\left\vert e_j^{(k)}\right\vert$$
 
 Since $A$ is strictly diagonally dominant, $C\_i=\sum_{j\neq i}\left\vert\frac{a\_{ij}}{a\_{ii}}\right\vert<1$ and hence we have
 
@@ -435,7 +435,7 @@ If $A$ is symmetric, i.e. $L=U^\mathsf{T}$, such a method is called the Symmetri
 
 #### 4.1.2. Convergence
 
-##### Thm) Kahan
+##### Thm 4.1) Kahan
 > If $a_{ii} \neq 0$ for $i = 1, \ldots, n$, then the SOR iteration matrix $T_\omega$ satisfies  
 > 
 > $$\rho(T_\omega) \geq |\omega - 1|$$
@@ -443,12 +443,12 @@ If $A$ is symmetric, i.e. $L=U^\mathsf{T}$, such a method is called the Symmetri
 
 <div style="height: 0.1em;"></div>
 
-##### Thm) Ostrowski–Reich
+##### Thm 4.2) Ostrowski–Reich
 > If $A^\mathsf{T}=A\succeq0$ and $0 < \omega < 2$, then the SOR iterates converge to $A^{-1}b$ for every $x^{(0)}$.
 
 <div style="height: 0.1em;"></div>
 
-##### Thm) Determining the relaxation factor
+##### Thm 4.3) Determining the relaxation factor
 > If $A$ is symmetric positive-definite and tridiagonal, then  
 > 
 > $$\rho(T_{G}) = \rho(T_J)^2 < 1,$$
