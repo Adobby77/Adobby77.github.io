@@ -209,7 +209,7 @@ Let $x_{j^*}$ be the element whose magnitude is the largest among the elements o
 
 $$|x_{i}|=\max_{j}|x_j|$$
 
-Since $x\neq 0,\; \left|x\_i\right|>0$.
+Since $x\neq 0,\; \left\vert x\_i\right\vert>0$.
 
 Now, from the equation $Ax=\lambda x$, observe the $i^{\textrm{th}}$ row only.
 
@@ -227,11 +227,11 @@ By triangle inequality,
 
 $$\left|\sum_{j\neq i}a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|$$
 
-and from the fact that $\left|x\_i\right|\geq\left|x\_j\right|$ ,
+and from the fact that $\left\vertx\_i\right\vert\geq\left\vertx\_j\right\vert$ ,
 
 $$\sum_{j\neq i}\left|a_{ij}\frac{x_j}{x_i}\right|=\sum_{j\neq i}\left|a_{ij}\right|\left|\frac{x_j}{x_i}\right|\leq\sum_{j\neq i}\left|a_{ij}\right|=R_i$$
 
-Thus, we can conclude that $\left|\lambda-a_{ii}\right|\leq R\_i$ and hence, proved.<span style="float: right;">$\square$</span>
+Thus, we can conclude that $\left\vert\lambda-a_{ii}\right\vert\leq R\_i$ and hence, proved.<span style="float: right;">$\square$</span>
 
 <div style="height: 0.1em;"></div>
 
@@ -270,9 +270,9 @@ $$e_i^{(k+1)}=x_i^{(k+1)}-x_i^*=\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}\left(x_j^{(
 
 Taking absolute value and apply the triangle inequality.
 
-$$\left|e_i^{(k+1)}\right|=\left|\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}e_j^{(k)}\right|\leq\left|\frac{1}{a_{ii}}\right|\sum_{j\neq i}\left|a_{ij}e_j^{(k)}\right|=\sum_{j\neq i}\left|\frac{a_{ij}}{a_{ii}}\right|\left|e_j^{(k)}\right|$$
+$$\left\vert e_i^{(k+1)}\right\vert=\left\vert\frac{1}{a_{ii}}\sum_{j\neq i}a_{ij}e_j^{(k)}\right\vert\leq\left\vert\frac{1}{a_{ii}}\right\vert\sum_{j\neq i}\left\verta_{ij}e_j^{(k)}\right\vert=\sum_{j\neq i}\left\vert\frac{a_{ij}}{a_{ii}}\right\vert\left\verte_j^{(k)}\right\vert$$
 
-Since $A$ is strictly diagonally dominant, $C\_i=\sum_{j\neq i}\left|\frac{a\_{ij}}{a\_{ii}}\right|<1$ and hence we have
+Since $A$ is strictly diagonally dominant, $C\_i=\sum_{j\neq i}\left\vert\frac{a\_{ij}}{a\_{ii}}\right\vert<1$ and hence we have
 
 $$\left|e_i^{(k+1)}\right|\leq C_i\left|e_j^{(k)}\right|$$
 
@@ -304,7 +304,7 @@ Taking the absolute value and applying the triangle inequality, we get:
 
 $$\left|e_i^{(k+1)}\right|\leq\frac{1}{\left|a_{ii}\right|}\left(\sum_{j=1}^{i-1}\left|a_{ij}\right|\left|e_j^{(k+1)}\right|+\sum_{j=i+1}^{n}\left|a_{ij}\right|\left|e_j^{(k)}\right|\right)$$
 
-Let $\left|e^{(k+1)}\right|\_\infty = \max\_i\left|e\_i^{(k+1)}\right| = \left|e\_p^{(k+1)}\right|$ for some index $p$. For this specific component $p$, the inequality becomes:
+Let $\left\vert e^{(k+1)}\right\vert\_\infty = \max\_i\left\vert e\_i^{(k+1)}\right\vert = \left\vert e\_p^{(k+1)}\right\vert$ for some index $p$. For this specific component $p$, the inequality becomes:
 
 $$\|e^{(k+1)}\|_\infty \leq \frac{1}{|a_{pp}|} \left( \left(\sum_{j=1}^{p-1}|a_{pj}|\right) \|e^{(k+1)}\|_\infty + \left(\sum_{j=p+1}^{n}|a_{pj}|\right) \|e^{(k)}\|_\infty \right)$$
 
@@ -314,9 +314,9 @@ $$\|e^{(k+1)}\|_\infty \left( 1 - \frac{\sum_{j=1}^{p-1}|a_{pj}|}{|a_{pp}|} \rig
 
 $$\|e^{(k+1)}\|_\infty \le \left( \frac{\sum_{j=p+1}^{n}|a_{pj}|}{|a_{pp}| - \sum_{j=1}^{p-1}|a_{pj}|} \right) \|e^{(k)}\|_\infty$$
 
-Since $A$ is strictly diagonally dominant, we know that $\left|a\_{pp}\right| > \sum\_{j \neq p}\left|a\_{pj}\right| = \sum\_{j=1}^{p-1}\left|a\_{pj}\right| + \sum\_{j=p+1}^{n}\left|a_{pj}\right|$. 
+Since $A$ is strictly diagonally dominant, we know that $\left\vert a\_{pp}\right\vert > \sum\_{j \neq p}\left\vert a\_{pj}\right\vert = \sum\_{j=1}^{p-1}\left\vert a\_{pj}\right\vert + \sum\_{j=p+1}^{n}\left\vert a_{pj}\right\vert$. 
 
-This implies $\left|a\_{pp}\right| - \sum\_{j=1}^{p-1}\left|a\_{pj}\right| > \sum_{j=p+1}^{n}\left|a\_{pj}\right|$. Let us define the constant as $C\_p = \frac{\sum_{j=p+1}^{n}\left|a\_{pj}\right|}{\left|a\_{pp}\right| - \sum\_{j=1}^{p-1}\left|a\_{pj}\right|}$, it follows that $C\_p < 1$.
+This implies $\left\vert a\_{pp}\right\vert - \sum\_{j=1}^{p-1}\left\vert a\_{pj}\right\vert > \sum_{j=p+1}^{n}\left\vert a\_{pj}\right\vert$. Let us define the constant as $C\_p = \frac{\sum_{j=p+1}^{n}\left\vert a\_{pj}\right\vert}{\left\vert a\_{pp}\right\vert - \sum\_{j=1}^{p-1}\left\vert a\_{pj}\right\vert}$, it follows that $C\_p < 1$.
 
 Then, by the definition of $l_\infty$ norm,
 
