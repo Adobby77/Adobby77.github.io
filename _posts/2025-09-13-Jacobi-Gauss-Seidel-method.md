@@ -2,12 +2,28 @@
 layout: post
 title: Jacobi & Gauss-Seidel Method
 date: 2025-09-13 12:00:00 +0900
+updated: 2026-02-15 00:00:00 +0900
 tags:
 - optimization
 - numerical-analysis
 - linear-algebra
 categories: study
+featured: true
+pdf: Jacobi.pdf
 ---
+> [!TIP] Download PDF
+> 
+> For a cleaner view, please refer to the attached PDF.
+> 
+> <div style="margin-top: 10px; display: flex; align-items: center; gap: 15px;">
+>   <a href="/assets/pdf/{{ page.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank">
+>     <i class="fas fa-file-pdf"></i> Download PDF
+>   </a>
+>   <span style="font-size: 0.85rem; color: #888;">
+>     <i class="fas fa-history"></i> Last updated: Sep. 14. 2025.
+>   </span>
+> </div>
+
 
 ## 0. Introduction
 
