@@ -4,7 +4,6 @@ title: about
 permalink: /
 subtitle: <a href='https://www.gist.ac.kr/'>Gwangju Institute of Science and Technology (GIST)</a>. Mathematical Science & EECS.
 
-
 #profile:
 #  align: right
 #  image: #prof_pic.jpg
@@ -16,7 +15,6 @@ subtitle: <a href='https://www.gist.ac.kr/'>Gwangju Institute of Science and Tec
 # selected_papers: true # includes a list of papers marked as "selected={true}"
 # social: true # includes social icons at the bottom of the page
 
-
 announcements:
   enabled: False # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
@@ -27,6 +25,7 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
+
 #### Biography
 
 I am an undergraduate student at **Gwangju Institute of Science and Technology (GIST)**, double majoring in **Mathematical Science** and **Electrical Engineering and Computer Science (EECS)**. 
@@ -36,3 +35,12 @@ My academic journey is driven by a deep fascination with the intersection of mat
 * **Optimization:** Distributed ADMM
 * **Control Theory:** Model Predictive Control (MPC), Multi-agent Systems.
 * **Distance Geometry:** Rigidity Theory
+
+<br>
+<hr>
+<div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+  <h2 style="font-style: italic; font-weight: 600; font-size: 2.2em; color: var(--global-theme-color);">
+    "There is nothing so practical as a good theory."
+  </h2>
+  <p style="font-size: 1.1em; color: var(--global-text-color); opacity: 0.8;">— Kurt Lewin</p>
+</div>
