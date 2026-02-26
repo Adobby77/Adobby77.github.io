@@ -94,7 +94,7 @@ ninja.data = [{
           title: 'Global Rigidity and Embedding Problem',
           description: "Distance Geometry",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/Global%20Rigidity%20&%20Embedding/";
+              window.location.href = "/projects/global_rigidity_and_embedding/";
             },},{id: "projects-sample-project",
           title: 'Sample Project',
           description: "A sample project description.",
