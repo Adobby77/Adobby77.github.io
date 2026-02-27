@@ -1,10 +1,16 @@
 ---
 layout: page
-title: Global Rigidity & Minimum Embeddable Dimension
-description: Distance Geometry
+title: Global Rigidity & Minimum Embedding Dimension Problem
+description: Undergraduate Research Program
 img: assets/img/double_banana.png
 importance: 1
 category: work
+_styles: >
+  .post-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
 ---
 
 This is my undergraduate research project in department of mathematical science at GIST.
