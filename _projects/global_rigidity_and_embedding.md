@@ -7,7 +7,7 @@ importance: 1
 category: work
 _styles: >
   .post-title {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     line-height: 1.2;
     margin-bottom: 2rem;
   }
