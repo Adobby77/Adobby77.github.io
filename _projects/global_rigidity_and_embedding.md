@@ -2,7 +2,7 @@
 layout: page
 title: Global Rigidity and Embedding Problem
 description: Distance Geometry
-img: assets/img/Distance_rigidity.jpg
+img: assets/img/double_banana.png
 importance: 1
 category: work
 ---
