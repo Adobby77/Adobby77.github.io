@@ -90,8 +90,8 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-global-rigidity-and-embedding-problem",
-          title: 'Global Rigidity and Embedding Problem',
+          section: "News",},{id: "projects-global-rigidity-amp-minimum-embeddable-dimension",
+          title: 'Global Rigidity &amp;amp; Minimum Embeddable Dimension',
           description: "Distance Geometry",
           section: "Projects",handler: () => {
               window.location.href = "/projects/global_rigidity_and_embedding/";
