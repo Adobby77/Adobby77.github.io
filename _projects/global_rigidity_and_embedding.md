@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Global Rigidity and Embedding Problem
+title: Global Rigidity & Minimum Embeddable Dimension
 description: Distance Geometry
 img: assets/img/double_banana.png
 importance: 1
