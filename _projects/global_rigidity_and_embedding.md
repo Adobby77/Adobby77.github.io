@@ -7,10 +7,11 @@ importance: 1
 category: work
 _styles: >
   .post-title {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     line-height: 1.2;
     margin-bottom: 2rem;
   }
+list_title_style: "font-size: 1.2rem; line-height: 1.2;"
 ---
 
 This is my undergraduate research project in department of mathematical science at GIST.

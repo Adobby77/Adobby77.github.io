@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: /study/
-title: Study
+title: study
 nav: true
 nav_order: 1
 pagination:
