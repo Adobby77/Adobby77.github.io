@@ -32,9 +32,9 @@ I am an undergraduate student at **Gwangju Institute of Science and Technology (
 My academic journey is driven by a deep fascination with the intersection of mathematics and applied control theory including rigorous proof.
 
 ##### Research Interests
-* **Optimization:** Distributed ADMM
-* **Control Theory:** Model Predictive Control (MPC), Multi-agent Systems.
-* **Distance Geometry:** Rigidity Theory
+* **Control Theory:** Multi-Agent Systems, Model Predictive Control, Control Barrier Function
+* **Optimization:** ADMM variants
+* **Distance Geometry:** Rigidity Theory, Minimum Embedding Dimension
 
 <br>
 <hr>
