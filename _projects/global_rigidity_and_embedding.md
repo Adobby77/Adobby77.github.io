@@ -28,7 +28,7 @@ Provide necessary and sufficient combinatorial conditions on a framework $(G,p)$
 
 <br>
 
-##### Problem 2: Embeddability and Minimal Dimension
+##### Problem 2: Embeddability and Minimal Dimension (Distance Matrix Completion Problem)
 
 **Q1.** Provide necessary and sufficient combinatorial conditions on a framework $(G,p)$ such that it is embeddable in $\mathbb{R}^d$ (or, generally, on a given manifold $\mathcal{M}$).
 
