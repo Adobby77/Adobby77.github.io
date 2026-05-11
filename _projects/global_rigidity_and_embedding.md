@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Global Rigidity & Minimum Embedding Dimension Problem
+title: Topics in Distance Geometry
 description: Undergraduate Research Program
 img: assets/img/double_banana.png
 importance: 1
