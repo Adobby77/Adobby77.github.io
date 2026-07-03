@@ -33,7 +33,7 @@ My academic journey is driven by a deep fascination with the intersection of mat
 
 ##### Research Interests
 * **Control Theory:** Multi-Agent Systems, Optimal Control, Safety-Critical Control
-* **Distance Geometry:** Rigidity Theory, Distance Matrix Completion
+* **Combinatorial & Distance Geometry:** Graph Rigidity Theory, Distance Matrix Completion, Graph Dimension Theory
 
 <br>
 <hr>
