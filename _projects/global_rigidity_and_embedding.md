@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Topics in Distance Geometry
-description: Undergraduate Research Program
+title: On page numbers of Unit-distance book embedding
+description: Undergraduate Thesis
 img: assets/img/double_banana.png
 importance: 1
 category: work
